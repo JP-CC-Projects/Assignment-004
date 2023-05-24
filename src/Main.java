@@ -1,9 +1,10 @@
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
 //        new StudentListSortAndWriter(new StudentListMaker().studentListsAsObjects());
-        new StudentListMaker();
+//        new StudentListMaker();
+        new StudentListSortAndWriter().studentListSortAndWriter();
     }
 }

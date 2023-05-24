@@ -4,9 +4,7 @@ import java.io.ObjectOutputStream;
 
 public class StudentListMaker{
 
-    FileOutputStream apMathList = null;
-    FileOutputStream compSciList = null;
-    FileOutputStream statList = null;
+
     //    Creates CSV files for student lists for various courses
     public StudentListMaker() throws NullPointerException, IOException {
 
@@ -19,28 +17,14 @@ public class StudentListMaker{
             objectOutput.writeObject(line);
         }
 
-
-        try {
-            compSciList = new FileOutputStream("src/student_lists/course2.csv");
-            System.out.println("Created Student List CSV File 2");
-        } finally {
-            if (compSciList != null) {
-                compSciList.close();
-            }
+        try (FileOutputStream compSciList = new FileOutputStream("src/student_lists/course2.csv");
+             ObjectOutputStream objectOutput = new ObjectOutputStream(compSciList)) {
+            objectOutput.writeObject(line);
         }
 
-        try {
-            statList = new FileOutputStream("src/student_lists/course3.csv");
-            System.out.println("Created Student List CSV File 3");
-        } finally {
-            if (statList != null) {
-                statList.close();
-            }
+        try (FileOutputStream statList = new FileOutputStream("src/student_lists/course3.csv");
+             ObjectOutputStream objectOutput = new ObjectOutputStream(statList)) {
+            objectOutput.writeObject(line);
         }
-    }
-    public FileOutputStream[] studentListsAsObjects(){
-        FileOutputStream[] studentListObjectArr = {apMathList, compSciList, statList};
-        return studentListObjectArr;
-
     }
 }
