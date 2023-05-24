@@ -1,10 +1,9 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-public class StudentListSortAndWriter {
-    public String[] studentListSortAndWriter() {
+public class StudentCourseSort {
+    public String[] studentCourseSort() {
 
         int i = 0;
         String line = null;
@@ -17,8 +16,16 @@ public class StudentListSortAndWriter {
 
             while((line = fileReader.readLine()) != null){
                 lineData = line.split(",");
-                lines = Arrays.asList(lineData);
-                System.out.println(Arrays.toString(lineData));
+
+                if(lineData[2].matches("^APMTH.*$")){
+                    new APMTHStudentListMaker(line);
+                }
+                else if(lineData[2].matches("^COMP.*$")){
+
+                }
+                else if(lineData[2].matches("^STAT.*$")){
+
+                }
             }
         }
         catch(IOException e) {

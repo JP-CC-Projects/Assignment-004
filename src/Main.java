@@ -1,10 +1,13 @@
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-//        new StudentListSortAndWriter(new StudentListMaker().studentListsAsObjects());
+//        new StudentCourseSort(new StudentListMaker().studentListsAsObjects());
 //        new StudentListMaker();
-        new StudentListSortAndWriter().studentListSortAndWriter();
+//        new StudentCourseSort().studentCourseSort();
+        new MVP();
     }
 }
