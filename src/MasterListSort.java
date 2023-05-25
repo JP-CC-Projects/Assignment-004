@@ -26,9 +26,9 @@ public class MasterListSort {
             }
         }
 
-        // Send studentArr to Quick Sort method quickSortStudentArr(),
-        // quickSortStudentArr() will return an ArrayList<Student> sorted by grade stored in sortedStudentList
-        QuickSortStudentArr.quickSortStudentArr(studentArr, 0, studentArr.size() - 1);
+        // Send studentArr to Quick Sort method quickSortStudentArr2(),
+        // quickSortStudentArr2() will return an ArrayList<Student> sorted by grade stored in sortedStudentList
+        QuickSortStudentArr.quickSortStudentArr(studentArr);
 
 
         //Add grade-sorted ArrayList<Student> to a new CSV file

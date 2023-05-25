@@ -1,12 +1,14 @@
-import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Random;
 
-public class QuickSortStudentArr {
+public class QuickSortStudentArr2 {
 
-    public static void quickSortStudentArr(ArrayList<Student> studentArr){
-        quickSortStudentArr(studentArr, 0, studentArr.size()-1);
+
+    private static void quickSortStudentArr2(ArrayList<Student> studentArr){
+        quickSortStudentArr2(studentArr, 0, studentArr.size()-1);
     }
-    public static void quickSortStudentArr(ArrayList<Student> studentArr, int lowIndex, int highIndex)
+
+    private static void quickSortStudentArr2(ArrayList<Student> studentArr, int lowIndex, int highIndex)
             throws NumberFormatException {
 
 
@@ -23,7 +25,17 @@ public class QuickSortStudentArr {
 //        Quick sort algorithm:
 
         if (lowIndex >= highIndex) return;
-        int pivot = Integer.parseInt(studentArr.get(highIndex).grade);
+        int pivotIndex = new Random().nextInt(highIndex-lowIndex) + lowIndex;
+        int pivot = Integer.parseInt(studentArr.get(pivotIndex).grade);
+        quickSwap(studentArr, pivotIndex, highIndex);
+
+        int leftPointer = partition(studentArr, lowIndex, highIndex, pivot);
+        quickSortStudentArr2(studentArr, lowIndex, leftPointer - 1);
+        quickSortStudentArr2(studentArr, leftPointer + 1, highIndex);
+    }
+
+
+    private static int partition(ArrayList<Student> studentArr, int lowIndex, int highIndex, int pivot) {
         int leftPointer = lowIndex;
         int rightPointer = highIndex;
 
@@ -39,11 +51,8 @@ public class QuickSortStudentArr {
             quickSwap(studentArr, leftPointer, rightPointer);
         }
         quickSwap(studentArr, leftPointer, highIndex);
-
-        quickSortStudentArr(studentArr, lowIndex, leftPointer - 1);
-        quickSortStudentArr(studentArr, leftPointer + 1, highIndex);
+        return leftPointer;
     }
-
 
     private static void quickSwap(ArrayList<Student> arr, int index1, int index2) {
         Student temp = arr.get(index1);
