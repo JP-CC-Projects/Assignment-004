@@ -2,17 +2,18 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class QuickSortStudentArr {
-    public static void quickSortStudentArr(ArrayList<Student> studentArr, int lowIndex, int highIndex) {
+    public static void quickSortStudentArr(ArrayList<Student> studentArr, int lowIndex, int highIndex)
+            throws NumberFormatException{
 
 
 //        Catch block for  NumberFormatException:
         try {
             for (Student s : studentArr) {
-                if (Integer.parseInt(s.grade) > 0) {
-                }
+                int i = Integer.parseInt(s.grade);
             }
         } catch (NumberFormatException e) {
-
+            System.out.println("Number Format Exception Found");
+            System.out.println(e);
         }
 
 //        Quick sort algorithm:

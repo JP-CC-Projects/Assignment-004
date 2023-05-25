@@ -2,7 +2,6 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.nio.Buffer;
 import java.util.ArrayList;
 
 public class MasterListSort {
@@ -11,7 +10,6 @@ public class MasterListSort {
         String line = null;
         String[] lineData = {};
         ArrayList<Student> studentArr = new ArrayList<>();
-        ArrayList<Student> sortedStudentList = new ArrayList<>();
 
         // Create Student POJOs, add them to ArrayList studentArr
         try (BufferedReader fileReader = new BufferedReader(
@@ -44,10 +42,6 @@ public class MasterListSort {
                         student.courseName + "," +
                         student.grade + "\n");
             }
-
-//            while ((line = fileReader.readLine()) != null) {
-//                studentArr.add(line);
-////                lineData = line.split(",");
         }
     }
 }

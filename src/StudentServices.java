@@ -1,16 +1,20 @@
 import java.io.*;
 
-public class MVP {
-    public MVP() throws Exception {
+public class StudentServices {
+    public StudentServices() throws Exception {
 
         String line = null;
         String[] lineData = {};
 
+
+        //Read sorted student master list &
+        //Create and write grade-sorted course CSVs:
+
         try (BufferedReader fileReader = new BufferedReader(
                 new FileReader("src/student_lists/student-master-list-sorted.csv"));
-             BufferedWriter courseListAPMTH = new BufferedWriter(new FileWriter("src/student_lists/course1.txt"));
-             BufferedWriter courseListCOMPSCI = new BufferedWriter(new FileWriter("src/student_lists/course2.txt"));
-             BufferedWriter courseListSTAT = new BufferedWriter(new FileWriter("src/student_lists/course3.txt"))) {
+             BufferedWriter courseListAPMTH = new BufferedWriter(new FileWriter("src/student_lists/course1.csv"));
+             BufferedWriter courseListCOMPSCI = new BufferedWriter(new FileWriter("src/student_lists/course2.csv"));
+             BufferedWriter courseListSTAT = new BufferedWriter(new FileWriter("src/student_lists/course3.csv"))) {
 
 
 //            Write category headers for each course list:
@@ -21,7 +25,7 @@ public class MVP {
             courseListSTAT.write("Student ID,Student Name,Course,Grade");
             courseListSTAT.newLine();
 
-
+//            Add students to appropriate courses via regex match
             while ((line = fileReader.readLine()) != null) {
                 lineData = line.split(",");
 
